@@ -1,9 +1,9 @@
-name: Validate Stage Pull Request
+name: Validate Main Pull Request
 
 on:
   pull_request:
     branches:
-      - stage
+      - main
     paths:
       - 'force-app/**'
 jobs:
