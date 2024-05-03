@@ -2,7 +2,8 @@ public with sharing class TestFactory {
     public TestFactory() {
 
     }
-    public Boolean void test(){
+    public static Boolean test(){
+        // return true
         return true;
     }
 }
