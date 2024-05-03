@@ -65,5 +65,5 @@ jobs:
 
       - name: Deploy Delta components to Salesofrce
         run: |
-          sf deploy functions --connected-org org-alias
+          sf deploy functions --connected-org HubOrg
           
