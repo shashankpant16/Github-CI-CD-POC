@@ -3,7 +3,7 @@ public with sharing class TestFactory {
 
     }
     public static Boolean test(){
-        // return true value12
+        // test comment
         return true;
     }
 }
