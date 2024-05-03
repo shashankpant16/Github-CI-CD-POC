@@ -1,11 +1,6 @@
 name: Validate Main Pull Request
 
-on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'force-app/**'
+on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
