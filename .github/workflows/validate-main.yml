@@ -1,5 +1,5 @@
-name: Validate Main Pull Request
-
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
@@ -36,4 +36,12 @@ jobs:
           sfdx force --help
       - name: Decrypt the server.key.enc file & store inside assets folder
         run: |
-          openssl enc -nosalt -aes-256-cbc -d -in server.key.enc -out server.key -base64 -K DE3B4F6346E0CFA95CA695168A0FD8DA4D06AE808A0AFA9A4DBD2502D5DD6FE7 -iv AC767FEDCF2105140E84B62495C3F43A
+          openssl enc -nosalt -aes-256-cbc -d -in assets/server.key.enc -out assets/server.key -base64 -K DE3B4F6346E0CFA95CA695168A0FD8DA4D06AE808A0AFA9A4DBD2502D5DD6FE7 -iv AC767FEDCF2105140E84B62495C3F43A
+          
+      - name: Authenticate Salesforce ORG
+        run: |
+          sfdx force:auth:jwt:grant --clientid 3MVG9WVXk15qiz1Kyw945yjSMuqPoyuoQmIamsz1vyQKW3IiMskLq0e1TNi0FuFRL4gvb83UIOSSD5Fvkz_a4 --jwtkeyfile assets/server.key --username shashankpant16@brave-badger-9sm4pj.com --setdefaultdevhubusername -a HubOrg
+      
+      - name: Validate Source Code Against Salesforce ORG
+        run: |
+          sfdx force:source:deploy -p force-app -c -u HubOrg
