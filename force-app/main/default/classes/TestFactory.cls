@@ -3,6 +3,7 @@ public with sharing class TestFactory {
 
     }
     public Boolean void test(){
+        // return true
         return true;
     }
 }
